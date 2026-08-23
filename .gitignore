@@ -31,5 +31,8 @@ yarn-error.log*
 .claude/
 *.sw*
 
+# Playwright MCP
+.playwright-mcp/
+
 # misc
 .eslintcache
