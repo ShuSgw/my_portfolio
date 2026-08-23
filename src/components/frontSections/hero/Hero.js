@@ -1,7 +1,8 @@
 import React from "react";
-import {StaticImage} from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
+import { PiHandWavingFill } from "react-icons/pi";
 
-const Hero = ({subHead}) => {
+const Hero = ({ subHead }) => {
   return (
     <>
       <div className="flex flex-col items-center md:flex-row md:justify-between md:space-x-10">
@@ -15,11 +16,15 @@ const Hero = ({subHead}) => {
           />
         </div>
         <div className="w-full flex-initial mt-5 md:mt-0 md:w-3/5">
-          <div className="text-5xl font-extrabold leading-tighter tracking-tighter mb-1 md:text-6xl">
-            Hello{" "}
-            <span className="inline-block animate-spin" role="img" aria-label="waving hand">
-              👋
-            </span>
+          <div className="flex gap-2 text-5xl font-extrabold leading-tighter tracking-tighter mb-1 md:text-6xl">
+            Hello
+            <PiHandWavingFill
+              className="block animate-wave text-[#F9DCBD]"
+              stroke="#000000"
+              strokeWidth={6}
+              role="img"
+              aria-label="waving hand"
+            />
           </div>
           <div className="text-5xl font-extrabold leading-tighter tracking-tighter mb-2 md:text-6xl md:mb-5">
             I'm Shuhei,
