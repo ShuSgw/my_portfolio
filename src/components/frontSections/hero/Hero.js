@@ -1,8 +1,6 @@
 import React from "react";
 import {StaticImage} from "gatsby-plugin-image";
 
-import Emoji from "react-emojis";
-
 const Hero = ({subHead}) => {
   return (
     <>
@@ -18,7 +16,10 @@ const Hero = ({subHead}) => {
         </div>
         <div className="w-full flex-initial mt-5 md:mt-0 md:w-3/5">
           <div className="text-5xl font-extrabold leading-tighter tracking-tighter mb-1 md:text-6xl">
-            Hello <Emoji className="animate-spin" emoji="waving-hand" />
+            Hello{" "}
+            <span className="inline-block animate-spin" role="img" aria-label="waving hand">
+              👋
+            </span>
           </div>
           <div className="text-5xl font-extrabold leading-tighter tracking-tighter mb-2 md:text-6xl md:mb-5">
             I'm Shuhei,
