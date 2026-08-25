@@ -1,63 +1,48 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import {
+  PiStarFill,
+  PiUserGearFill,
+  PiCodeFill,
+  PiToolboxFill,
+} from "react-icons/pi";
 
-import { useStaticQuery, graphql } from "gatsby";
+const COMPANY_ICON_OVERRIDES = {
+  "HRC Education Canada": PiToolboxFill,
+};
+
+const getJobIcon = (eachExp) => {
+  if (COMPANY_ICON_OVERRIDES[eachExp.company]) {
+    return COMPANY_ICON_OVERRIDES[eachExp.company];
+  }
+  const jobTitle = eachExp.jobTitle || "";
+  if (/リード|lead/i.test(jobTitle)) return PiStarFill;
+  if (/管理|admin|担当/i.test(jobTitle)) return PiUserGearFill;
+  return PiCodeFill;
+};
 
 const TimelineItem = ({ eachExp }) => {
-  const companyLogoImageData = useStaticQuery(
-    graphql`
-      {
-        allFile(filter: { sourceInstanceName: { eq: "companyLogo" } }) {
-          edges {
-            node {
-              publicURL
-              name
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const filterTheImage = (companyLogoImageData, theImage) => {
-    let theLogo = "";
-    companyLogoImageData.forEach((eachLogo) => {
-      if (eachLogo.node.name == theImage) {
-        theLogo = eachLogo.node.publicURL;
-      }
-    });
-    return theLogo;
-  };
-
-  const qrryImageSorce = companyLogoImageData.allFile.edges;
+  const JobIcon = getJobIcon(eachExp);
   return (
-    <>
-      <div className="py-10 flex flex-col md:flex-row border-b border-gray-300">
-        <div className="">
-          <div className="relative flex">
-            <div>
-              <span className="block font-body font-bold text-grey-40">
-                {eachExp.company}
-              </span>
-              <span className="block pt-4 font-header text-xl font-bold text-primary md:pt-1">
-                {eachExp.jobTitle}
-              </span>
-              <div className="flex gap-3">
-                <div className="text-slate-500 font-bod pt-1">
-                  <span className="">{eachExp.area}</span>
-                </div>
-                <div className="text-slate-500 font-bod pt-1">
-                  <span className="">{eachExp.period}</span>
-                </div>
-              </div>
-              <div className="pt-2">
-                <span className="block font-body">{eachExp.description}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="py-10 border-b border-gray-300">
+      <span className="block font-body font-bold text-grey-40">
+        {eachExp.company}
+      </span>
+      <div className="flex items-center gap-2 pt-1">
+        <JobIcon className="text-primary shrink-0" size={22} />
+        <span className="block font-header text-xl font-bold text-primary">
+          {eachExp.jobTitle}
+        </span>
       </div>
-    </>
+      <div className="text-slate-500 font-bod pt-2">
+        <span className="">{eachExp.area}</span>
+      </div>
+      <div className="text-slate-500 font-bod pt-1">
+        <span className="">{eachExp.period}</span>
+      </div>
+      <div className="pt-2">
+        <span className="block font-body">{eachExp.description}</span>
+      </div>
+    </div>
   );
 };
 
