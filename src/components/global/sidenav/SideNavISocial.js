@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  AiFillFacebook,
-  AiFillLinkedin,
-  AiFillTwitterSquare,
-  AiFillGithub,
-} from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { FaXTwitter } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
-const SideNavISocial = ({link}) => {
+const SideNavISocial = ({ link }) => {
   const chooseIcon = (whichIcon) => {
     let theIcon = "";
     switch (whichIcon) {
@@ -16,8 +13,8 @@ const SideNavISocial = ({link}) => {
       case "LinkedIn":
         theIcon = <AiFillLinkedin />;
         break;
-      case "Twitter":
-        theIcon = <AiFillTwitterSquare />;
+      case "X (Twitter)":
+        theIcon = <FaSquareXTwitter />;
         break;
       default:
     }
