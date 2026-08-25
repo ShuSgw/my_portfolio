@@ -12,11 +12,19 @@ const setInitialTheme = `
 })();
 `;
 
-exports.onRenderBody = ({setPreBodyComponents}) => {
+exports.onRenderBody = ({setPreBodyComponents, setHeadComponents}) => {
   setPreBodyComponents([
     React.createElement("script", {
       key: "theme-init",
       dangerouslySetInnerHTML: {__html: setInitialTheme},
+    }),
+  ]);
+  setHeadComponents([
+    React.createElement("link", {
+      key: "favicon",
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon.png",
     }),
   ]);
 };

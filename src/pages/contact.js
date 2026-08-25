@@ -4,10 +4,10 @@ import {graphql} from "gatsby";
 import {useI18next, useTranslation} from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/global/layout/Layout";
+import SEO from "../components/seo";
 
 const Contact = () => {
-  const {languages, originalPath} = useI18next();
-  console.log(originalPath);
+  const {languages, originalPath, language} = useI18next();
   const {t} = useTranslation();
 
   const langInfo = {
@@ -15,8 +15,15 @@ const Contact = () => {
     originalPath,
   };
 
+  const seoTitle = language === "en" ? "Contact - sgw_studio" : "問い合わせ - sgw_studio";
+  const seoDescription =
+    language === "en"
+      ? "Get in touch with Shuhei, a web developer based in Japan."
+      : "お問い合わせはこちらから。";
+
   return (
     <>
+      <SEO title={seoTitle} description={seoDescription} lang={language} />
       <Layout langInfo={langInfo}>
         <div className="font-bold font-header text-4xl lg:text-4xl">
           Contact

@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "sgw_stuido",
+    title: "sgw_studio",
     description: "Portfolio site showcasing web development projects and works",
     siteUrl: "https://shagawa.work",
     author: "sgw",
-    image: "/og-image.jpg",
+    image: "/og-image.png",
   },
   plugins: [
     // {
