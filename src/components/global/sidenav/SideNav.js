@@ -2,10 +2,10 @@ import React from "react";
 import SideNavItem from "./SideNavItem";
 import SideNavISocial from "./SideNavISocial";
 
-import {AiOutlineCloseSquare} from "react-icons/ai";
-import {v4 as uuidv4} from "uuid";
+import { AiOutlineCloseSquare } from "react-icons/ai";
+import { v4 as uuidv4 } from "uuid";
 
-const SideNav = ({slideToggle}) => {
+const SideNav = ({ slideToggle }) => {
   const lniks = [
     {
       route: `/`,
@@ -32,7 +32,7 @@ const SideNav = ({slideToggle}) => {
     },
     {
       url: `https://twitter.com/shusgw`,
-      title: `Twitter`,
+      title: `X (Twitter)`,
     },
   ];
 
