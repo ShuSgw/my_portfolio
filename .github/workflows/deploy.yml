@@ -33,3 +33,4 @@ jobs:
           remote_port: ${{ secrets.SSH_PORT }}
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.HOSTINGER_ACTION_DEPLOY_KEY }}
+          debug: true
