@@ -30,7 +30,10 @@ const IndexPage = ({ data }) => {
     <>
       <SEO title={seoTitle} description={seoDescription} lang={languages} />
       <Layout langInfo={langInfo}>
-        <Hero subHead={t("frontPage.subHead")} />
+        <Hero
+          subHead={t("frontPage.subHead")}
+          cvLabel={t("frontPage.viewCv")}
+        />
         <About aboutMe={t("frontPage.aboutMe")} />
         <Skills />
         <Experience

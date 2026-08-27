@@ -4,7 +4,7 @@ import { PiHandWavingFill, PiReadCvLogoBold } from "react-icons/pi";
 import { motion } from "motion/react";
 import { fadeUp, staggerParent } from "../frontMotion";
 
-const Hero = ({ subHead }) => {
+const Hero = ({ subHead, cvLabel }) => {
   return (
     <>
       <motion.div
@@ -66,7 +66,7 @@ const Hero = ({ subHead }) => {
             className="mt-6 inline-flex items-center gap-2 rounded-md border border-gray-900 px-5 py-2.5 font-body font-bold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
           >
             <PiReadCvLogoBold className="text-xl" />
-            View CV
+            {cvLabel}
           </motion.a>
         </motion.div>
       </motion.div>
