@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { PiHandWavingFill } from "react-icons/pi";
+import { PiHandWavingFill, PiReadCvLogoBold } from "react-icons/pi";
 import { motion } from "motion/react";
 import { fadeUp, staggerParent } from "../frontMotion";
 
@@ -55,6 +55,19 @@ const Hero = ({ subHead }) => {
             a web developer based in Japan.
           </motion.div>
           <motion.p variants={fadeUp}>{subHead}</motion.p>
+
+          <motion.a
+            href="/cv/shagawa_cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={fadeUp}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-6 inline-flex items-center gap-2 rounded-md border border-gray-900 px-5 py-2.5 font-body font-bold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
+          >
+            <PiReadCvLogoBold className="text-xl" />
+            View CV
+          </motion.a>
         </motion.div>
       </motion.div>
     </>

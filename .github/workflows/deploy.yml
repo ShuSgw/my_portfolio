@@ -22,6 +22,10 @@ jobs:
 
       - name: Build Gatsby site
         run: npm run build
+        env:
+          # Basic auth for /cv/ — consumed by gatsby-node.js onPostBuild.
+          CV_BASIC_AUTH_HTPASSWD: ${{ secrets.CV_BASIC_AUTH_HTPASSWD }}
+          CV_BASIC_AUTH_USERFILE_PATH: /home/u303929511/domains/shagawa.work/public_html/cv/.htpasswd
 
       - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
