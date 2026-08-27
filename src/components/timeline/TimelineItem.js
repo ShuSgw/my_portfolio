@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from "motion/react";
 import {
   PiStarFill,
   PiUserGearFill,
@@ -20,10 +21,15 @@ const getJobIcon = (eachExp) => {
   return PiCodeFill;
 };
 
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 const TimelineItem = ({ eachExp }) => {
   const JobIcon = getJobIcon(eachExp);
   return (
-    <div className="py-10 border-b border-gray-300">
+    <motion.div className="py-10 border-b border-gray-300" variants={item}>
       <span className="block font-body font-bold text-grey-40">
         {eachExp.company}
       </span>
@@ -42,7 +48,7 @@ const TimelineItem = ({ eachExp }) => {
       <div className="pt-2">
         <span className="block font-body">{eachExp.description}</span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

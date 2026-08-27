@@ -1,8 +1,11 @@
 import React from "react";
-import {Link, graphql} from "gatsby";
+import { Link } from "gatsby";
+import { motion } from "motion/react";
 import CardImage from "./CardImage";
 
-const Card = ({ttl, excerpt, featuredImage, uri, date, tags}) => {
+const MotionLink = motion(Link);
+
+const Card = ({ ttl, excerpt, featuredImage, uri, date, tags }) => {
   const tagColor = (tech) => {
     const colors = {
       blue: "bg-blue-200 text-blue-700",
@@ -38,9 +41,13 @@ const Card = ({ttl, excerpt, featuredImage, uri, date, tags}) => {
   };
   return (
     <>
-      <Link
+      <MotionLink
         to={`/works${uri}`}
         className="w-full mt-5 mx-auto max-w-lg flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-none hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <CardImage featuredImage={featuredImage} />
         <div className="flex flex-col p-4 leading-normal md:w-full">
@@ -52,7 +59,7 @@ const Card = ({ttl, excerpt, featuredImage, uri, date, tags}) => {
             {tags.map((tag) => (
               <span
                 className={`text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 ${tagColor(
-                  tag.name
+                  tag.name,
                 )} rounded-full`}
                 key={tag.name}
               >
@@ -62,10 +69,10 @@ const Card = ({ttl, excerpt, featuredImage, uri, date, tags}) => {
           </div>
           <p
             className="mb-3 mt-3 font-normal text-gray-700 dark:text-gray-400"
-            dangerouslySetInnerHTML={{__html: excerpt}}
+            dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         </div>
-      </Link>
+      </MotionLink>
     </>
   );
 };
