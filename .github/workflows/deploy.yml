@@ -25,7 +25,7 @@ jobs:
         env:
           # Basic auth for /cv/ — consumed by gatsby-node.js onPostBuild.
           CV_BASIC_AUTH_HTPASSWD: ${{ secrets.CV_BASIC_AUTH_HTPASSWD }}
-          CV_BASIC_AUTH_USERFILE_PATH: /home/u303929511/domains/shagawa.work/public_html/cv/.htpasswd
+          CV_BASIC_AUTH_USERFILE_PATH: /home/u985674127/domains/shagawa.work/public_html/cv/.htpasswd
           # Google Analytics (GA4) — consumed by gatsby-config.js.
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
           # Google Search Console verification token — consumed by gatsby-ssr.js.
@@ -46,4 +46,4 @@ jobs:
             --exclude=.well-known/ \
             --exclude=cv/shagawa_cv.pdf \
             public/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/u303929511/domains/shagawa.work/public_html/
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/u985674127/domains/shagawa.work/public_html/
