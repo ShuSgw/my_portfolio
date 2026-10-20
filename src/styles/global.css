@@ -21,6 +21,31 @@ body.dark {
   @apply bg-black;
 }
 
+/* Embla Carousel */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  gap: 1rem;
+  margin-left: calc(1rem * -1);
+}
+.embla__slide {
+  flex: 0 0 85%;
+  min-width: 0;
+  padding-left: 1rem;
+}
+@media (min-width: 640px) {
+  .embla__slide {
+    flex-basis: 47%;
+  }
+}
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex-basis: 32%;
+  }
+}
+
 /* aria-current="page" */
 .langBtn a[aria-current*="page"] {
   opacity: 0.5;

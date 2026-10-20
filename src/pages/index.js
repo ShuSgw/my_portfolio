@@ -7,6 +7,7 @@ import Hero from "../components/frontSections/hero/Hero";
 import Layout from "../components/global/layout/Layout";
 import Skills from "../components/frontSections/skills/Skills";
 import About from "../components/frontSections/about/About";
+import WorksCarousel from "../components/frontSections/works/WorksCarousel";
 import SEO from "../components/seo";
 
 import Experience from "../components/frontSections/experience/Experience";
@@ -34,6 +35,7 @@ const IndexPage = ({ data }) => {
           subHead={t("frontPage.subHead")}
           cvLabel={t("frontPage.viewCv")}
         />
+        <WorksCarousel posts={data.allWpPost?.edges ?? []} lang={language} />
         <About aboutMe={t("frontPage.aboutMe")} />
         <Skills />
         <Experience
@@ -52,6 +54,41 @@ export const indexLang = graphql`
           ns
           data
           language
+        }
+      }
+    }
+    allWpPost(limit: 10, sort: { fields: date, order: DESC }) {
+      edges {
+        node {
+          id
+          title
+          excerpt
+          uri
+          date
+          tags {
+            nodes {
+              name
+            }
+          }
+          english {
+            englishTitle
+            englishExcerpt
+          }
+          featuredImage {
+            node {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    quality: 80
+                    placeholder: BLURRED
+                    layout: CONSTRAINED
+                    width: 600
+                  )
+                }
+              }
+            }
+          }
         }
       }
     }
